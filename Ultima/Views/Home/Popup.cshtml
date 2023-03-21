@@ -1,0 +1,150 @@
+﻿
+
+<input type="hidden" id="txtProduct" name="txtProduct" value="" />
+<input type="hidden" id="txPrice" name="txtPrice" value="" />
+<input type="hidden" id="txtQnty" name="txtQnty" value="" />
+<form action="~/Home/Cart" method="post">
+    <div class="modal fade" id="Powertwo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">The product has been added to your cart</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="" style="display:flex">
+                        <div>
+                            <img src="~/Image/Earpiece/power1.png" alt="Avatar" style="width:300px;height:300px;">
+                        </div>
+                        <div>
+                            <h2 style="margin-top:70px">
+                                <input type="text" id="Product" readonly name="Product" style=" border: none;" value="" />
+
+                            </h2>
+                            <h3>
+                                Quantity :
+                                <button type="button" id="Sub">-</button>
+                                <input type="text" id="Quanity" name="txtQuantity" style="width: 30px; border: none;" value="" />
+                                <button type="button" id="Plus">+</button>
+                            </h3>
+                            <h3>
+                                Price:
+
+                                <input type="text" id="price" value="2399" style="border:none;width:100px" placeholder="2399" readonly />
+
+                            </h3>
+
+                            <h4>SubTotal : <input type="text" readonly id="Subtotal" name="txtSubtotal" style="width: 150px; border: none;" /></h4>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="btnseven">View cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Powerone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">The product has been added to your cart</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="" style="display:flex">
+                        <div>
+                            <img src="~/Image/Earpiece/power1.png" alt="Avatar" style="width:300px;height:300px;">
+                        </div>
+                        <div>
+                            <h2 style="margin-top:70px">
+                                <input type="text" id="Product" readonly name="Product" style=" border: none;" value="" />
+
+                            </h2>
+                            <h3>
+                                Quantity :
+                                <button type="button" id="Sub">-</button>
+                                <input type="text" id="Quanity" name="txtQuantity" style="width: 30px; border: none;" value="" />
+                                <button type="button" id="Plus">+</button>
+                            </h3>
+                            <h3>
+                                Price:
+
+                                <input type="text" id="price" value="2199" style="border:none;width:100px" placeholder="2199" readonly />
+
+                            </h3>
+
+                            <h4>SubTotal : <input type="text" readonly id="Subtotal" name="txtSubtotal" style="width: 150px; border: none;" /></h4>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="btneight">View cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+    <script>
+
+
+
+
+
+
+        var qtn = 1;
+        function sub() {
+            var a = qtn--;
+            $("#Quanity").val(a);
+            var price = $("#price").val();
+            var total = a * price;
+
+            $("#Subtotal").val(total);
+        }
+        function add() {
+            var a = qtn++;
+            $("#Quanity").val(a);
+            var price = $("#price").val();
+
+            var total = a * price;
+
+            $("#Subtotal").val(total);
+        }
+
+
+
+
+        $(document).on("click", "#Sub", function () {
+
+
+            sub();
+
+        });
+        $(document).on("click", "#Plus", function () {
+            add();
+        });
+
+        $(document).on("click", "#btnseven", function () {
+
+            $("#txtProduct").val("Ultima Atom 320");
+
+            $("#txPrice").val("2399");
+            var q = $("#Quanity").val()
+            $("#txtQnty").val(q);
+        });
+
+        $(document).on("click", "#btneight", function () {
+            $("#txtProduct").val("Ultima Atom 920");
+            $("#txPrice").val("2199");
+            var q = $("#Quanity").val()
+            $("#txtQnty").val(q);
+        });
+    </script>

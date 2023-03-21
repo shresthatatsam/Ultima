@@ -1,0 +1,93 @@
+﻿
+
+@*@model System.Data.DataTable*@ 
+
+@model List<Ultima.Models.CartModel>
+
+
+
+    <style>
+        .cart {
+            display: flex;
+        }
+
+        .inps > input {
+            border: none;
+        }
+
+        .inp > input {
+            border: none;
+            background-color: #f2f2f2;
+        }
+    </style>
+    <div class="row mt-5">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+
+                            <td class="inp"><input type="text" readonly value="@item.Pname" /></td>
+                            <td class="inp"><input type="text" readonly value="@item.Price" /></td>
+                            <td class="inp"><input type="text" readonly value="@item.Quantity" /></td>
+                        </tr>
+                    }
+
+
+                    @*for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <tr>
+
+
+                            <td class="inp"><input type="text" readonly value="@Model.Rows[i][1]" /></td>
+                            <td class="inp"><input type="text" readonly value="@Model.Rows[i][2]" /></td>
+                            <td class="inp"><input type="text" readonly value="@Model.Rows[i][3]" /></td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order summary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td class="inps"><input type="text" readonly value="Rs @ViewBag.SubTotal" /></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Discount</td>
+                        <td>Rs 0.0</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Order Total</td>
+                        <td class="inps"><input type="text" readonly value="Rs @ViewBag.SubTotal" /></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            <button class="btn btn-lg" style="background-color: #18ba9b;width:100%;color:white;">Proceed to checkout</button>
+        </div>
+
+    </div>
+
